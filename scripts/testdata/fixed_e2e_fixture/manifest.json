@@ -1,0 +1,44 @@
+{
+  "fixture_name": "fixed_e2e_fixture",
+  "purpose": "Bootstrap blocked时用于generator->reviewed->publish后链路闭环联调的固定CSV夹具",
+  "generator": {
+    "generation_batch_id": "fixture-e2e",
+    "trade_date_from": "2024-01-02",
+    "trade_date_to": "2024-01-02",
+    "expected_candidate": {
+      "candidate_key": "600519.SH_2024-01-02",
+      "code": "600519.SH",
+      "start_date": "2024-01-02",
+      "end_date": "2024-01-29",
+      "primary_tag": "放量突破 vs 假突破",
+      "difficulty": "normal",
+      "review_status": "PENDING"
+    }
+  },
+  "publish": {
+    "publish_batch_id": "fixture-publish-e2e",
+    "expected_challenge_id": "600519.SH_2024-01-02_breakout_v1",
+    "expected_challenge_day_count": 20
+  },
+  "static_reviewed_fixture": {
+    "expected_core_fields": {
+      "candidate_key": "600519.SH_2024-01-02",
+      "code": "600519.SH",
+      "start_date": "2024-01-02",
+      "end_date": "2024-01-29",
+      "primary_tag": "放量突破 vs 假突破",
+      "difficulty": "normal",
+      "generation_batch_id": "fixture-e2e",
+      "review_status": "APPROVED",
+      "publish_flag": "YES"
+    },
+    "minimal_score_explain_json": {
+      "fixture": "fixed_e2e_fixture",
+      "mode": "manual_review_sample"
+    },
+    "minimal_rule_flags_json": {
+      "fixture": "fixed_e2e_fixture",
+      "mode": "manual_review_sample"
+    }
+  }
+}

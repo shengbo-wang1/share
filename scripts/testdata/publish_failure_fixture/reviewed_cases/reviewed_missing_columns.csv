@@ -1,0 +1,2 @@
+candidate_key,code,start_date,end_date,primary_tag,difficulty,generation_batch_id,review_status,review_comment,reviewer,reviewed_at,publish_flag
+600519.SH_2024-01-02,600519.SH,2024-01-02,2024-01-29,放量突破 vs 假突破,normal,fixture-e2e,APPROVED,missing required columns,fixture-bot,2026-03-22T10:00:00,YES

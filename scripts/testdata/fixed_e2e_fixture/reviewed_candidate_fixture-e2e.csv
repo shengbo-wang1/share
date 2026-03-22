@@ -1,0 +1,2 @@
+candidate_key,code,start_date,end_date,primary_tag,secondary_tag,difficulty,score_explain_json,rule_flags_json,generation_batch_id,review_status,review_comment,adjusted_primary_tag,adjusted_difficulty,reviewer,reviewed_at,publish_flag
+600519.SH_2024-01-02,600519.SH,2024-01-02,2024-01-29,放量突破 vs 假突破,,normal,"{""fixture"":""fixed_e2e_fixture"",""mode"":""manual_review_sample""}","{""fixture"":""fixed_e2e_fixture"",""mode"":""manual_review_sample""}",fixture-e2e,APPROVED,fixture smoke test approved,,,fixture-bot,2026-03-22T10:00:00,YES

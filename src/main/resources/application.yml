@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: share
+
+game:
+  initial-cash: 100000
+  trading-cost-rate: 0.0015
+  signing-secret: please-change-me-in-production

@@ -1,0 +1,81 @@
+{
+  "fixture_name": "generator_failure_fixture",
+  "purpose": "challenge_generator.py 的离线失败/半失败样本集；每个样本只对应一种主语义",
+  "cases": [
+    {
+      "case_id": "review_required",
+      "input_dir": "bootstrap_cases/review_required",
+      "generation_batch_id": "fixture-generator-fail-review-required",
+      "trade_date_from": "2024-01-02",
+      "trade_date_to": "2024-01-02",
+      "expected": {
+        "raises_generator_error": false,
+        "run_log_status": "SUCCESS",
+        "candidate_count": 1,
+        "expected_debug_reasons": [
+          "tag_hit_放量突破 vs 假突破",
+          "tag_hit_高位放量阴线",
+          "candidate_emitted"
+        ],
+        "candidate": {
+          "candidate_key": "600519.SH_2024-01-02",
+          "primary_tag": "放量突破 vs 假突破",
+          "difficulty": "hard",
+          "review_status": "REVIEW_REQUIRED"
+        }
+      }
+    },
+    {
+      "case_id": "no_candidate",
+      "input_dir": "bootstrap_cases/no_candidate",
+      "generation_batch_id": "fixture-generator-fail-no-candidate",
+      "trade_date_from": "2024-01-02",
+      "trade_date_to": "2024-01-02",
+      "expected": {
+        "raises_generator_error": true,
+        "run_log_status": "EMPTY",
+        "candidate_count": 0,
+        "expected_debug_reasons": [
+          "no_tag_hit",
+          "tag_miss_放量突破 vs 假突破"
+        ],
+        "error_message_contains": "规则未命中"
+      }
+    },
+    {
+      "case_id": "insufficient_trade_days",
+      "input_dir": "bootstrap_cases/insufficient_trade_days",
+      "generation_batch_id": "fixture-generator-fail-insufficient-days",
+      "trade_date_from": "2024-01-02",
+      "trade_date_to": "2024-01-15",
+      "expected": {
+        "raises_generator_error": true,
+        "run_log_status": "EMPTY",
+        "candidate_count": 0,
+        "expected_debug_reasons": [
+          "insufficient_trade_days"
+        ],
+        "error_message_contains": "样本不足"
+      }
+    },
+    {
+      "case_id": "unresolvable_tag_conflict",
+      "input_dir": "bootstrap_cases/unresolvable_tag_conflict",
+      "generation_batch_id": "fixture-generator-fail-unresolvable",
+      "trade_date_from": "2024-01-02",
+      "trade_date_to": "2024-01-02",
+      "expected": {
+        "raises_generator_error": true,
+        "run_log_status": "EMPTY",
+        "candidate_count": 0,
+        "expected_debug_reasons": [
+          "tag_hit_放量突破 vs 假突破",
+          "tag_hit_高位放量阴线",
+          "tag_hit_连续上涨后该持有还是止盈",
+          "unresolvable_tag_conflict"
+        ],
+        "error_message_contains": "规则未命中"
+      }
+    }
+  ]
+}

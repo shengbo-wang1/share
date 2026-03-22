@@ -1,0 +1,76 @@
+{
+  "fixture_name": "generator_stability_fixture",
+  "purpose": "challenge_generator.py 的规则稳定性 anti-drift 样本集；用于锁定核心标签/难度/review_status/debug reason 行为",
+  "cases": [
+    {
+      "case_id": "easy_clear_signal",
+      "input_dir": "bootstrap_cases/easy_clear_signal",
+      "generation_batch_id": "fixture-generator-stability-easy",
+      "trade_date_from": "2024-01-02",
+      "trade_date_to": "2024-01-02",
+      "expected": {
+        "run_log_status": "SUCCESS",
+        "candidate_count": 1,
+        "expected_debug_reasons": [
+          "tag_hit_缩量回踩均线",
+          "tag_miss_大盘恐慌日该不该抄底",
+          "candidate_emitted"
+        ],
+        "candidate": {
+          "candidate_key": "600519.SH_2024-01-02",
+          "primary_tag": "缩量回踩均线",
+          "secondary_tag": "",
+          "difficulty": "easy",
+          "review_status": "PENDING"
+        }
+      }
+    },
+    {
+      "case_id": "secondary_tag_explanatory",
+      "input_dir": "bootstrap_cases/secondary_tag_explanatory",
+      "generation_batch_id": "fixture-generator-stability-secondary",
+      "trade_date_from": "2024-01-02",
+      "trade_date_to": "2024-01-02",
+      "expected": {
+        "run_log_status": "SUCCESS",
+        "candidate_count": 1,
+        "expected_debug_reasons": [
+          "tag_hit_放量突破 vs 假突破",
+          "tag_hit_连续上涨后该持有还是止盈",
+          "candidate_emitted"
+        ],
+        "candidate": {
+          "candidate_key": "600519.SH_2024-01-02",
+          "primary_tag": "放量突破 vs 假突破",
+          "secondary_tag": "连续上涨后该持有还是止盈",
+          "difficulty": "normal",
+          "review_status": "PENDING"
+        }
+      }
+    },
+    {
+      "case_id": "index_missing_but_candidate_survives",
+      "input_dir": "bootstrap_cases/index_missing_but_candidate_survives",
+      "generation_batch_id": "fixture-generator-stability-index-missing",
+      "trade_date_from": "2024-01-02",
+      "trade_date_to": "2024-01-02",
+      "expected": {
+        "run_log_status": "SUCCESS",
+        "candidate_count": 1,
+        "expected_debug_reasons": [
+          "tag_hit_放量突破 vs 假突破",
+          "tag_miss_大盘恐慌日该不该抄底",
+          "index_features_missing",
+          "candidate_emitted"
+        ],
+        "candidate": {
+          "candidate_key": "600519.SH_2024-01-02",
+          "primary_tag": "放量突破 vs 假突破",
+          "secondary_tag": "",
+          "difficulty": "normal",
+          "review_status": "PENDING"
+        }
+      }
+    }
+  ]
+}
